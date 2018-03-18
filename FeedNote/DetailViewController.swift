@@ -13,6 +13,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UINavigationCo
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentsView: UITextView!
     @IBOutlet var imagesView: UIImageView!
+    @IBOutlet var imagesStack: NSLayoutConstraint!
     
     var item: Item!
     var imageStore: ImageStore!
@@ -50,6 +51,11 @@ class DetailViewController: UIViewController, UITextViewDelegate, UINavigationCo
         // 이미지 뷰에 그 이미지를 표시한다.
         let imageToDisplay = imageStore.imageForKey(key: key)
         imagesView.image = imageToDisplay
+        
+        if imageToDisplay == nil {
+            imagesStack.constant = 0
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,6 +95,10 @@ class DetailViewController: UIViewController, UITextViewDelegate, UINavigationCo
         
         // 화면상의 이미지를 imageView에 넣는다
         imagesView.image = image
+        
+        // 사진이 등록 됐을때 stack 높이를 높여준다.
+        imagesStack.constant = 269
+        
         
         // 이미지 피커를 화면에서 사라지게 한다.
         // 반드시 이 dismiss 메서드를 호출해아함

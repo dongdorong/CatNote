@@ -15,7 +15,6 @@ class ViewController: UITableViewController {
     
     @IBOutlet weak var editBarItem: UIBarButtonItem!
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -41,6 +40,7 @@ class ViewController: UITableViewController {
         
         // 테이블뷰의 제약 조건에 따라 셀높이 계산
         tableView.rowHeight = 110
+        
         
     }
 
@@ -80,6 +80,14 @@ class ViewController: UITableViewController {
         let imageToDisplay = imageStore.imageForKey(key: key)
         
         cell.imgView.image = imageToDisplay
+        
+        // 이미지가 없으면 constant가 20
+        // 이미지가 있으면 텍스트가 잘 나오게
+        if imageToDisplay == nil {
+            cell.trailing.constant = 20
+        } else {
+            cell.trailing.constant = 120
+        }
         
         return cell
     }

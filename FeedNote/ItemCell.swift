@@ -13,4 +13,5 @@ class ItemCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var imgView: UIImageView!
+    @IBOutlet weak var trailing: NSLayoutConstraint!
 }

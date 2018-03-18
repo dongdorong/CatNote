@@ -81,6 +81,7 @@
                                     <outlet property="imgView" destination="kph-JX-Ihy" id="f80-rb-q93"/>
                                     <outlet property="locationLabel" destination="UKe-6b-ei0" id="G0d-6l-BPh"/>
                                     <outlet property="titleLable" destination="AFz-wJ-o0J" id="1DX-Nn-4cV"/>
+                                    <outlet property="trailing" destination="tPn-7z-oVl" id="pZl-eq-Qzh"/>
                                     <segue destination="MUv-7l-SEa" kind="show" identifier="ShowItem" id="u9R-aw-DnT"/>
                                 </connections>
                             </tableViewCell>
@@ -157,10 +158,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C5t-m0-BZY">
-                                        <rect key="frame" x="0.0" y="269" width="345" height="304"/>
+                                        <rect key="frame" x="0.0" y="269" width="345" height="199"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-lv-xYf">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="304"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="199"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -170,9 +171,22 @@
                                             </textView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="P4q-oX-8WG">
+                                        <rect key="frame" x="0.0" y="483" width="345" height="90"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O6x-eb-djZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="90"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </mapView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="99t-WH-XHA" firstAttribute="top" secondItem="DwV-J1-ZGj" secondAttribute="top" constant="33" id="XPI-OB-Ce8"/>
+                                    <constraint firstItem="P4q-oX-8WG" firstAttribute="top" secondItem="DwV-J1-ZGj" secondAttribute="top" constant="483" id="fqT-b9-5oU"/>
+                                    <constraint firstItem="P4q-oX-8WG" firstAttribute="top" secondItem="C5t-m0-BZY" secondAttribute="bottom" constant="15" id="pGC-09-gUY"/>
                                     <constraint firstItem="C5t-m0-BZY" firstAttribute="top" secondItem="DwV-J1-ZGj" secondAttribute="top" constant="269" id="zGg-ZO-fct"/>
                                 </constraints>
                             </stackView>
@@ -192,6 +206,7 @@
                     <connections>
                         <outlet property="contentsView" destination="SLh-lv-xYf" id="kjW-Uv-sEt"/>
                         <outlet property="dateLabel" destination="FXL-xw-OjB" id="wul-pb-Mzk"/>
+                        <outlet property="imagesStack" destination="zGg-ZO-fct" id="XhH-1t-SkI"/>
                         <outlet property="imagesView" destination="wwf-dC-aZu" id="S90-YB-2cg"/>
                     </connections>
                 </viewController>
