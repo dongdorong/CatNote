@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     var itemStore: ItemStore!
     var imageStore: ImageStore!
     
+    @IBOutlet weak var itemNum: UIBarButtonItem!
     @IBOutlet weak var editBarItem: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,8 @@ class ViewController: UITableViewController {
         // 테이블뷰의 제약 조건에 따라 셀높이 계산
         tableView.rowHeight = 110
         
+        // toolbar item
+        itemNum.title = "0 item"
         
     }
 
@@ -89,6 +92,8 @@ class ViewController: UITableViewController {
             cell.trailing.constant = 120
         }
         
+        itemNum.title = "\(itemStore.allItem.count) item"
+        
         return cell
     }
     
@@ -132,6 +137,7 @@ class ViewController: UITableViewController {
                 self.itemStore.removeItem(item: item)
                 self.imageStore.deletImageForKey(key: item.itemKey)
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.itemNum.title = "\(self.itemStore.allItem.count) item"
             })
             
             ac.addAction(cancelAction)
