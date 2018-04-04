@@ -18,20 +18,26 @@ class DetailViewController: UIViewController, UITextViewDelegate, UINavigationCo
     var item: Item!
     var imageStore: ImageStore!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         // Date
-        let date = Date()
+        let date = item.date
         let formatter = DateFormatter()
         formatter.dateFormat = "yy. MM. dd  a hh:mm"
         let dateString = formatter.string(from: date)
+        item.date = date
+        
+        print("DetailViewController time: \(dateString)")
         
         dateLabel.text = dateString
         contentsView.text = item.title
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // UI
-        
         // navigation
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = UIColor.black
@@ -53,7 +59,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UINavigationCo
         imagesView.image = imageToDisplay
         
         if imageToDisplay == nil {
-            imagesStack.constant = 0
+            imagesStack.constant = 33
         }
         
     }

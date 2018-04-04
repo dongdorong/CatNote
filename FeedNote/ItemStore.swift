@@ -25,6 +25,20 @@ class ItemStore{
         }
     }
     
+//    func filterItemsBy(date: Date) -> [[Item]] {
+//        
+//        var filteredItems = [Item()]
+//        
+//        for item in allItem {
+//            if item.valueInDollars > price {
+//                filteredItems.append(item)
+//            } else {
+//                filteredItems.append(item)
+//            }
+//        }
+//        return filteredItems
+//    }
+    
 //    init() {
 //        for _ in 0..<5 {
 //            createItem()

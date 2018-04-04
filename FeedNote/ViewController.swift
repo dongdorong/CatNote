@@ -64,7 +64,7 @@ class ViewController: UITableViewController {
         let item = itemStore.allItem[indexPath.row]
         
         // Date
-        let date = Date()
+        let date = item.date
         let formatter = DateFormatter()
         formatter.dateFormat = "yy. MM. dd  a hh:mm"
         let dateString = formatter.string(from: date)
@@ -73,6 +73,8 @@ class ViewController: UITableViewController {
         cell.titleLable.text = item.title
         cell.locationLabel.text = item.location
         cell.dateLabel.text = dateString
+        
+        print("ViewController time: \(dateString)")
         
         // Cell 이미지 등록
         // 물품 사진의 키를 가져온다
@@ -160,6 +162,11 @@ class ViewController: UITableViewController {
                 detailViewController.imageStore = imageStore
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return "2018.04"
     }
 
 }
